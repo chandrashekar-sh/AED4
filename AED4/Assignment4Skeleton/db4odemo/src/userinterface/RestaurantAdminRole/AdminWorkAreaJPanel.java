@@ -43,8 +43,13 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         enterpriseLabel = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(53, 33, 89));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel1.setText("My Work Area -Adminstrative Role");
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("My Work Area -Welcome Admin");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 350, -1));
 
         userJButton.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         userJButton.setText("Manage Restaurant Info");
@@ -53,6 +58,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 userJButtonActionPerformed(evt);
             }
         });
+        add(userJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 274, -1, -1));
 
         manageEmployeeJButton.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         manageEmployeeJButton.setText("Manage menu");
@@ -61,6 +67,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 manageEmployeeJButtonActionPerformed(evt);
             }
         });
+        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 232, 185, -1));
 
         manageOrganizationJButton.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         manageOrganizationJButton.setText("Manage Orders");
@@ -69,57 +76,18 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 manageOrganizationJButtonActionPerformed(evt);
             }
         });
+        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 185, -1));
 
         enterpriseLabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        enterpriseLabel.setForeground(new java.awt.Color(255, 255, 255));
         enterpriseLabel.setText("Restaurant :");
-
-        valueLabel.setText("<value>");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(190, 190, 190)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(userJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(manageEmployeeJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(manageOrganizationJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(141, 141, 141))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel1)
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(valueLabel)))
-                .addGap(70, 70, 70)
-                .addComponent(manageOrganizationJButton)
-                .addGap(17, 17, 17)
-                .addComponent(manageEmployeeJButton)
-                .addGap(17, 17, 17)
-                .addComponent(userJButton))
-        );
+        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 120, 30));
+        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 130, 20));
     }// </editor-fold>//GEN-END:initComponents
 
     private void userJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userJButtonActionPerformed
         // TODO add your handling code here:
-        ManageRestroInfo manageRestroJPanel = new ManageRestroInfo(userProcessContainer, account, ecosystem);
+        ManageRestroInfoWorkAreaJPanel manageRestroJPanel = new ManageRestroInfoWorkAreaJPanel(userProcessContainer, account, ecosystem);
        userProcessContainer.add("ManageRestroInfo", manageRestroJPanel);
        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
        layout.next(userProcessContainer);
@@ -127,14 +95,14 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_userJButtonActionPerformed
 
     private void manageEmployeeJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageEmployeeJButtonActionPerformed
-        ManageMenu managemenuJPanel = new ManageMenu(userProcessContainer, account, ecosystem);
+        ManageMenuWorkAreaJPanel managemenuJPanel = new ManageMenuWorkAreaJPanel(userProcessContainer, account, ecosystem);
        userProcessContainer.add("ManageMenu", managemenuJPanel);
        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
        layout.next(userProcessContainer);
     }//GEN-LAST:event_manageEmployeeJButtonActionPerformed
 
     private void manageOrganizationJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageOrganizationJButtonActionPerformed
-        ManageOrders manageorderJPanel = new ManageOrders(userProcessContainer, account, ecosystem);
+        ManageOrdersWorkAreaJPanel manageorderJPanel = new ManageOrdersWorkAreaJPanel(userProcessContainer, account, ecosystem);
        userProcessContainer.add("ManageOrders", manageorderJPanel);
        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
        layout.next(userProcessContainer);

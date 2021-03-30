@@ -80,6 +80,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         tblOrderDetails = new javax.swing.JTable();
         refreshJButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(53, 33, 89));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         processJButton.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
@@ -119,7 +120,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 58, 650, 96));
 
         refreshJButton.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        refreshJButton.setText("Refresh");
+        refreshJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/png/20x20/75.png"))); // NOI18N
         refreshJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refreshJButtonActionPerformed(evt);

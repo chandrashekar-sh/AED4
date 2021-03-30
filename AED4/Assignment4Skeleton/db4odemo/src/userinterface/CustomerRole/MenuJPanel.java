@@ -100,12 +100,14 @@ public void populateMenuTable(){
         tblCart = new javax.swing.JTable();
         btnRemoveFromCart = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(53, 33, 89));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         valueLabel.setText("<value>");
         add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 130, -1));
 
         enterpriseLabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        enterpriseLabel.setForeground(new java.awt.Color(255, 255, 255));
         enterpriseLabel.setText("Restaurant");
         add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 120, 30));
 
@@ -139,6 +141,7 @@ public void populateMenuTable(){
         add(btnAddToCart, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Location:");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, 80, -1));
         add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, 150, -1));

@@ -95,9 +95,6 @@ public void populateMenuTable(){
         jLabel1 = new javax.swing.JLabel();
         txtAddress = new javax.swing.JTextField();
         btnOrder1 = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblCart = new javax.swing.JTable();
-        btnRemoveFromCart = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(53, 33, 89));
@@ -138,13 +135,13 @@ public void populateMenuTable(){
                 btnAddToCartActionPerformed(evt);
             }
         });
-        add(btnAddToCart, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, -1, -1));
+        add(btnAddToCart, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Location:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, 80, -1));
-        add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, 150, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, 80, -1));
+        add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 150, -1));
 
         btnOrder1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         btnOrder1.setText("Order");
@@ -153,36 +150,7 @@ public void populateMenuTable(){
                 btnOrder1ActionPerformed(evt);
             }
         });
-        add(btnOrder1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 420, 100, -1));
-
-        tblCart.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Food Name", "Description", "Price"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane2.setViewportView(tblCart);
-
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, -1, 130));
-
-        btnRemoveFromCart.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        btnRemoveFromCart.setText("Remove Item");
-        btnRemoveFromCart.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRemoveFromCartActionPerformed(evt);
-            }
-        });
-        add(btnRemoveFromCart, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 270, -1, -1));
+        add(btnOrder1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, 100, -1));
 
         backJButton.setBackground(new java.awt.Color(0, 0, 0));
         backJButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -223,21 +191,6 @@ public void populateMenuTable(){
 
     }//GEN-LAST:event_btnOrder1ActionPerformed
 
-    private void btnRemoveFromCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveFromCartActionPerformed
-        // TODO add your handling code here:
-        int selectedRow = tblCart.getSelectedRow();
-        if(selectedRow<0){
-            JOptionPane.showMessageDialog(null,"Please select to remove from cart!!!","Warning",JOptionPane.WARNING_MESSAGE);
-        }
-        else{
-            Food food=(Food)tblCart.getValueAt(selectedRow, 0);
-            items.remove(food);
-            DefaultTableModel model = (DefaultTableModel) tblCart.getModel();
-            model.setRowCount(0);
-           
-        }
-    }//GEN-LAST:event_btnRemoveFromCartActionPerformed
-
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
 
         userProcessContainer.remove(this);
@@ -254,12 +207,9 @@ public void populateMenuTable(){
     private javax.swing.JButton backJButton;
     private javax.swing.JButton btnAddToCart;
     private javax.swing.JButton btnOrder1;
-    private javax.swing.JButton btnRemoveFromCart;
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable tblCart;
     private javax.swing.JTable tblMenu;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JLabel valueLabel;

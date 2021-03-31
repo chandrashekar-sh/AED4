@@ -157,7 +157,7 @@ public void populateOrderTable(){
         // TODO add your handling code here:
         int selectedRow = tblOrderDetail.getSelectedRow();
         if(selectedRow<0){
-            JOptionPane.showMessageDialog(null,"Please select the orders from the table to assign to the delivery ","Warning",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Please select the order to assign to the delivery man ","Warning",JOptionPane.WARNING_MESSAGE);
         }
         else{
             Order order  = (Order)tblOrderDetail.getValueAt(selectedRow, 0);

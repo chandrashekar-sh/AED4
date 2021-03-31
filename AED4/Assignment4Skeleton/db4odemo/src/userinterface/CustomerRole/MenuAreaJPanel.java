@@ -64,16 +64,16 @@ public void populateMenuTable(){
                 } 
     }
     
-    public void populateCart(Food dishitem){
+    public void populateCart(Food f){
         DefaultTableModel tablemodel = (DefaultTableModel) tblCart.getModel();
         tablemodel.setRowCount(0);
         
-         items.add(dishitem);
+         items.add(f);
          Object[] row = new Object[3];
-                for(Food f:items){
-                     row[0] = f;
-                     row[1] = f.getDescription();
-                     row[2] = f.getPrice();
+                for(Food fo:items){
+                     row[0] = fo;
+                     row[1] = fo.getDescription();
+                     row[2] = fo.getPrice();
                      sum=sum+Integer.parseInt(f.getPrice());
                      tablemodel.addRow(row);
                 }
@@ -217,7 +217,7 @@ public void populateMenuTable(){
         for(Customer cust:ecosystem.getCustomerDirectory().getCustomerDirectory()){
             if(userAccount.getUsername().equals(cust.getUserName())){
                 cust.addOrder(restaurant.getName(), userAccount.getUsername(), null, items, String.valueOf(sum) , address);
-                JOptionPane.showMessageDialog(null, "You Order placed successfully");
+                JOptionPane.showMessageDialog(null, "Success");
             }
         }
 
@@ -227,14 +227,14 @@ public void populateMenuTable(){
         // TODO add your handling code here:
         int selectedRow = tblCart.getSelectedRow();
         if(selectedRow<0){
-            JOptionPane.showMessageDialog(null,"Please select a row from the table to remove from cart","Warning",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Please select to remove from cart!!!","Warning",JOptionPane.WARNING_MESSAGE);
         }
         else{
             Food food=(Food)tblCart.getValueAt(selectedRow, 0);
             items.remove(food);
             DefaultTableModel model = (DefaultTableModel) tblCart.getModel();
             model.setRowCount(0);
-            // commented no use
+           
         }
     }//GEN-LAST:event_btnRemoveFromCartActionPerformed
 

@@ -146,7 +146,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
     private void btnOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderActionPerformed
         int selectedRow = tblRestaurant.getSelectedRow();
         if(selectedRow<0){
-            JOptionPane.showMessageDialog(null,"Please select a row  to view details","Warning",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Please select a row !!!","Warning",JOptionPane.WARNING_MESSAGE);
         }
         else{
             Restaurant restaurant = (Restaurant)tblRestaurant.getValueAt(selectedRow, 0);

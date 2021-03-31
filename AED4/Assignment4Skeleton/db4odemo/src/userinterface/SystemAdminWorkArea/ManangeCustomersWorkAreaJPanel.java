@@ -179,11 +179,11 @@ private JPanel userProcessContainer;
             txtUserName.setText(username+"");
             txtPassword.setText(password+"");
 
-            JOptionPane.showMessageDialog(null,"Please press save button to save the profile after updating the text field");
+            JOptionPane.showMessageDialog(null,"Please press save button!");
 
         }
         else {
-            JOptionPane.showMessageDialog(null,"Please select a row to update a profile");
+            JOptionPane.showMessageDialog(null,"Please selectthe persons profile to update");
         }
 
     }//GEN-LAST:event_btnUpdateActionPerformed
@@ -204,7 +204,7 @@ private JPanel userProcessContainer;
                 populateCustomerTable();
             }
         }else{
-            JOptionPane.showMessageDialog(null, "Please select a row to delete the account");
+            JOptionPane.showMessageDialog(null, "Please select the persons account to delete!");
         }
 
     }//GEN-LAST:event_btnDeleteActionPerformed

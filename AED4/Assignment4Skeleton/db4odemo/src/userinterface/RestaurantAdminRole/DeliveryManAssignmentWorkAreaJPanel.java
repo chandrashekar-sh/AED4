@@ -23,7 +23,7 @@ public class DeliveryManAssignmentWorkAreaJPanel extends javax.swing.JPanel {
     private UserAccount account;
     private Order order;
     private EcoSystem ecosystem;
-    /** Creates new form DeliveryManAssignment */
+    
     public DeliveryManAssignmentWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Order order, EcoSystem ecosystem) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
@@ -130,7 +130,7 @@ public class DeliveryManAssignmentWorkAreaJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selectedRow = tblDeliveryMan.getSelectedRow();
         if(selectedRow<0){
-            JOptionPane.showMessageDialog(null,"Please select a row from the table to assign the order","Warning",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Please select delivery man to assign the order!!","Warning",JOptionPane.WARNING_MESSAGE);
         }
         else
         {

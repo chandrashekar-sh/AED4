@@ -18,7 +18,7 @@ public class ManageRestroInfoWorkAreaJPanel extends javax.swing.JPanel {
     private EcoSystem ecosystem;
     private UserAccount account;
     /**
-     * Creates new form ManageRestroInfo
+     * 
      */
     public ManageRestroInfoWorkAreaJPanel(JPanel userProcessContainer,UserAccount account, EcoSystem ecosystem) {
         initComponents();

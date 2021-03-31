@@ -25,7 +25,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         this.ecosystem = ecosystem;
         this.account = account;
       
-        //valueLabel.setText();
+       ;
     }
     
     /** This method is called from within the constructor to

@@ -23,7 +23,7 @@ private JPanel userProcessContainer;
     private EcoSystem ecosystem;
     private Food menu;
     /**
-     * Creates new form ManageMenu
+     *
      */
     public ManageMenuWorkAreaJPanel(JPanel userProcessContainer,UserAccount account, EcoSystem ecosystem) {
         initComponents();
@@ -223,7 +223,7 @@ private JPanel userProcessContainer;
                 populateFoodCatalogue();
             }
         }else{
-            JOptionPane.showMessageDialog(null, "Please select a row to proceed for deletion");
+            JOptionPane.showMessageDialog(null, "Please the dish for deletion!");
         }
 
     }//GEN-LAST:event_btnDeleteActionPerformed

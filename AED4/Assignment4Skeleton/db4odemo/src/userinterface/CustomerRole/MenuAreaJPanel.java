@@ -24,7 +24,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author raunak
  */
-public class MenuJPanel extends javax.swing.JPanel {
+public class MenuAreaJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
    
@@ -37,7 +37,7 @@ public class MenuJPanel extends javax.swing.JPanel {
     /**
      * Creates new form RequestLabTestJPanel
      */
-    public MenuJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem, Restaurant restaurant) {
+    public MenuAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem, Restaurant restaurant) {
         initComponents();
         
         
@@ -94,11 +94,11 @@ public void populateMenuTable(){
         btnAddToCart = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtAddress = new javax.swing.JTextField();
-        btnOrder = new javax.swing.JButton();
         btnOrder1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblCart = new javax.swing.JTable();
         btnRemoveFromCart = new javax.swing.JButton();
+        backJButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(53, 33, 89));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -109,7 +109,7 @@ public void populateMenuTable(){
         enterpriseLabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         enterpriseLabel.setForeground(new java.awt.Color(255, 255, 255));
         enterpriseLabel.setText("Restaurant");
-        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 120, 30));
+        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 120, 30));
 
         tblMenu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -129,7 +129,7 @@ public void populateMenuTable(){
         });
         jScrollPane3.setViewportView(tblMenu);
 
-        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, -1, 130));
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, 130));
 
         btnAddToCart.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         btnAddToCart.setText("Add To Cart");
@@ -145,16 +145,6 @@ public void populateMenuTable(){
         jLabel1.setText("Location:");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, 80, -1));
         add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, 150, -1));
-
-        btnOrder.setBackground(new java.awt.Color(0, 0, 0));
-        btnOrder.setForeground(new java.awt.Color(255, 255, 255));
-        btnOrder.setText("Order");
-        btnOrder.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOrderActionPerformed(evt);
-            }
-        });
-        add(btnOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 490, 100, 30));
 
         btnOrder1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         btnOrder1.setText("Order");
@@ -183,7 +173,7 @@ public void populateMenuTable(){
         });
         jScrollPane2.setViewportView(tblCart);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, 130));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, -1, 130));
 
         btnRemoveFromCart.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         btnRemoveFromCart.setText("Remove Item");
@@ -193,6 +183,16 @@ public void populateMenuTable(){
             }
         });
         add(btnRemoveFromCart, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 270, -1, -1));
+
+        backJButton.setBackground(new java.awt.Color(0, 0, 0));
+        backJButton.setForeground(new java.awt.Color(255, 255, 255));
+        backJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/png/20x20/56.png"))); // NOI18N
+        backJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backJButtonActionPerformed(evt);
+            }
+        });
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddToCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddToCartActionPerformed
@@ -209,19 +209,6 @@ public void populateMenuTable(){
         }
 
     }//GEN-LAST:event_btnAddToCartActionPerformed
-
-    private void btnOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderActionPerformed
-
-        String address=txtAddress.getText();
-        restaurant.addOrder(restaurant.getName(), userAccount.getUsername(), null, items, String.valueOf(sum) , address);
-        for(Customer cust:ecosystem.getCustomerDirectory().getCustomerDirectory()){
-            if(userAccount.getUsername().equals(cust.getUserName())){
-                cust.addOrder(restaurant.getName(), userAccount.getUsername(), null, items, String.valueOf(sum) , address);
-                JOptionPane.showMessageDialog(null, "You Order placed successfully");
-            }
-        }
-
-    }//GEN-LAST:event_btnOrderActionPerformed
 
     private void btnOrder1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrder1ActionPerformed
 
@@ -251,9 +238,21 @@ public void populateMenuTable(){
         }
     }//GEN-LAST:event_btnRemoveFromCartActionPerformed
 
+    private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
+
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        CustomerAreaJPanel dwjp = (CustomerAreaJPanel) component;
+        dwjp.populateRequestTable();
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+
+    }//GEN-LAST:event_backJButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backJButton;
     private javax.swing.JButton btnAddToCart;
-    private javax.swing.JButton btnOrder;
     private javax.swing.JButton btnOrder1;
     private javax.swing.JButton btnRemoveFromCart;
     private javax.swing.JLabel enterpriseLabel;

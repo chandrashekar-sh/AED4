@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package userinterface.RestaurantAdminRole;
+import Business.Customer.Customer;
 import Business.EcoSystem;
+import Business.Restaurant.Food;
 import Business.Restaurant.Order;
 
 import Business.Restaurant.Restaurant;
@@ -21,6 +23,7 @@ public class ManageOrdersWorkAreaJPanel extends javax.swing.JPanel {
  private JPanel userProcessContainer;
     private UserAccount account;
     private EcoSystem ecosystem;
+    private Order order;
     /**
      * Creates new form ManageOrders
      */
@@ -29,6 +32,7 @@ public class ManageOrdersWorkAreaJPanel extends javax.swing.JPanel {
          this.userProcessContainer = userProcessContainer;
         this.account = account;
         this.ecosystem = ecosystem;
+        this.order =order;
         
         populateOrderTable();
     }
@@ -56,6 +60,7 @@ public void populateOrderTable(){
             
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -103,16 +108,16 @@ public void populateOrderTable(){
                 btnBackActionPerformed(evt);
             }
         });
-        jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         btnAssignDeliveryMan.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        btnAssignDeliveryMan.setText("Assign Delivery Man");
+        btnAssignDeliveryMan.setText("Assign ");
         btnAssignDeliveryMan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAssignDeliveryManActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAssignDeliveryMan, new org.netbeans.lib.awtextra.AbsoluteConstraints(244, 281, -1, -1));
+        jPanel1.add(btnAssignDeliveryMan, new org.netbeans.lib.awtextra.AbsoluteConstraints(244, 281, 80, -1));
 
         btnViewOrder.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         btnViewOrder.setText("View Order");
@@ -124,13 +129,13 @@ public void populateOrderTable(){
         jPanel1.add(btnViewOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 281, -1, -1));
 
         btnRefresh.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        btnRefresh.setText("Refresh");
+        btnRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/png/20x20/76.png"))); // NOI18N
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRefreshActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 281, -1, -1));
+        jPanel1.add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

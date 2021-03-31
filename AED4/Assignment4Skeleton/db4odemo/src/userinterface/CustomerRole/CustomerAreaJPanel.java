@@ -46,15 +46,15 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
          
        
                 Object[] row = new Object[3];
-                //System.out.println();
+               
                 for(Restaurant restro:ecosystem.getRestaurantDirectory().getRestaurantDirectory()){
                      row[0] = restro;
-                     //System.out.println(restro.getAdminUName());
                      row[1] = restro.getAddress();
                      row[2] = restro.getNumber();
                      tablemodel.addRow(row);
                 }
     }
+
 
     
     /**
@@ -70,9 +70,9 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         enterpriseLabel = new javax.swing.JLabel();
         lblCustomerID = new javax.swing.JLabel();
         btnOrder = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblRestaurant = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(53, 33, 89));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -90,6 +90,9 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         enterpriseLabel.setForeground(new java.awt.Color(255, 255, 255));
         enterpriseLabel.setText("Hello Customer!");
         add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 27, 150, 30));
+
+        lblCustomerID.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblCustomerID.setForeground(new java.awt.Color(255, 255, 255));
         add(lblCustomerID, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 27, 158, 26));
 
         btnOrder.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
@@ -99,15 +102,19 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                 btnOrderActionPerformed(evt);
             }
         });
-        add(btnOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, -1, -1));
+        add(btnOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, -1, -1));
 
-        tblRestaurant.setFont(new java.awt.Font("Times New Roman", 1, 10)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Restaurant Information");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, -1, -1));
+
         tblRestaurant.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Restaurant Name", "Location/Address", "Number"
+                "Restaurant Name", "Location", "Number"
             }
         ) {
             Class[] types = new Class [] {
@@ -127,12 +134,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblRestaurant);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 90, 346, 97));
-
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Restaurant Information");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, -1, -1));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 410, 130));
     }// </editor-fold>//GEN-END:initComponents
 
     private void refreshTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshTestJButtonActionPerformed
@@ -149,12 +151,11 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         else{
             Restaurant restaurant = (Restaurant)tblRestaurant.getValueAt(selectedRow, 0);
 
-            MenuJPanel manageMenuPanel=new MenuJPanel(userProcessContainer,account,ecosystem,restaurant);
+            MenuAreaJPanel manageMenuPanel=new MenuAreaJPanel(userProcessContainer,account,ecosystem,restaurant);
             userProcessContainer.add("MenuPanel",manageMenuPanel);
             CardLayout layout=(CardLayout)userProcessContainer.getLayout();
             layout.next(userProcessContainer);
         }
-
     }//GEN-LAST:event_btnOrderActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

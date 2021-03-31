@@ -51,8 +51,8 @@ public void populateOrderTable(){
                 row[0] = order;
                 row[1] = order.getCustomerName();
                 row[2] = order.getDeliveryAddress();
-                row[3] = order.getPrice();
-                row[4] = order.getStatus();
+                row[3] = order.getStatus();
+                
                 tablemodel.addRow(row);
                }
                 
@@ -86,11 +86,11 @@ public void populateOrderTable(){
 
             },
             new String [] {
-                "OrderID", "Customer", "Delivery Location", "Price", "Status"
+                "OrderID", "Customer", "Delivery Location", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

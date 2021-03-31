@@ -51,12 +51,15 @@ public void populateOrderTable(){
                 row[0] = order;
                 row[1] = order.getCustomerName();
                 row[2] = order.getDeliveryAddress();
+                
                 row[3] = order.getStatus();
                 
                 tablemodel.addRow(row);
                }
+              
+               }
                 
-            }
+            
             
         }
     }
@@ -75,7 +78,6 @@ public void populateOrderTable(){
         tblOrderDetail = new javax.swing.JTable();
         btnBack = new javax.swing.JButton();
         btnAssignDeliveryMan = new javax.swing.JButton();
-        btnViewOrder = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(53, 33, 89));
@@ -86,11 +88,11 @@ public void populateOrderTable(){
 
             },
             new String [] {
-                "OrderID", "Customer", "Delivery Location", "Status"
+                "OrderID", "Customer", "Delivery Location", "Status", "Price"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -118,15 +120,6 @@ public void populateOrderTable(){
             }
         });
         jPanel1.add(btnAssignDeliveryMan, new org.netbeans.lib.awtextra.AbsoluteConstraints(244, 281, 80, -1));
-
-        btnViewOrder.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        btnViewOrder.setText("View Order");
-        btnViewOrder.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewOrderActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnViewOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 281, -1, -1));
 
         btnRefresh.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         btnRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/png/20x20/76.png"))); // NOI18N
@@ -181,27 +174,11 @@ public void populateOrderTable(){
         populateOrderTable();
     }//GEN-LAST:event_btnRefreshActionPerformed
 
-    private void btnViewOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewOrderActionPerformed
-        // TODO add your handling code here:
-        int selectedRow = tblOrderDetail.getSelectedRow();
-        if(selectedRow<0){
-            JOptionPane.showMessageDialog(null,"Please select a row from the table to view order details","Warning",JOptionPane.WARNING_MESSAGE);
-        }
-        else{
-            Order order  = (Order)tblOrderDetail.getValueAt(selectedRow, 0);
-            OrderDetailsWorkAreaJPanel orderDetails=new OrderDetailsWorkAreaJPanel(userProcessContainer,account,order,ecosystem);
-            userProcessContainer.add("OrderDetails",orderDetails);
-            CardLayout layout=(CardLayout)userProcessContainer.getLayout();
-            layout.next(userProcessContainer);
-        }
-    }//GEN-LAST:event_btnViewOrderActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAssignDeliveryMan;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnRefresh;
-    private javax.swing.JButton btnViewOrder;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblOrderDetail;
